@@ -14,6 +14,7 @@ function Games() {
     const { get: getGames, data: games } = useApi();
 
     useEffect(() => {
+        console.log(`${import.meta.env.VITE_API_URL}/games`);
         getGames(`${import.meta.env.VITE_API_URL}/games`, 'games');
     }, []);
 

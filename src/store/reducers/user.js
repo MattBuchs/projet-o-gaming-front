@@ -24,6 +24,7 @@ export const updateLoginErrorMessage = createAction(
 export const login = createAsyncThunk('user/login', async (_, thunkAPI) => {
     const { email, password } = thunkAPI.getState().user.credentials;
     const { data } = await axiosInstance.post('/login', { email, password });
+    console.log(data);
 
     // api return {error:string} when user failed to login so we reject the action
     if (Object.prototype.hasOwnProperty.call(data, 'error')) {
